@@ -1,0 +1,15 @@
+<h1 id="todolist"></h1>
+<script type="text/javascript">
+
+    var todo = ["playing","listening","writing","reading","drawing"];
+
+    var todoList = document.getElementById(`todolist`);
+    var ul = document.createElement(`ul`);
+    todoList.appendChild(ul);
+
+    todo.map((val,index)=>{
+        var li = document.createElement(`li`);
+        li.innerHTML = `${++index} : ${val}`;
+        ul.appendChild(li);
+    });
+</script>

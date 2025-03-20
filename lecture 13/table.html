@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table style="display: flex; justify-content: center;">
+        <tr>
+            <th style="border: 1px solid black; padding: 10px;">Name</th>
+            <th style="border: 1px solid black; padding: 10px;">Age</th>
+            <th style="border: 1px solid black; padding: 10px;">Job</th>
+        </tr>
+        <tr>
+            <td style="border: none;">
+                <input type="number" id="inputName" style="width: 100px;padding: 10px;border: 1px solid black;">
+            </td>
+            <td style="border: none;">
+                <input type="number" id="inputAge" style="width: 100px;padding: 10px;border: 1px solid black;">
+            </td>
+            <td style="border: none;">
+                <input type="number" id="inputjob" style="width: 100px;padding: 10px;border: 1px solid black;">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="submit" id="submit" onclick="add()" style="padding: 10px;"></td>
+        </tr>
+    </table>
+    <h2 style="display: flex;justify-content: center;" id="name"></h2>
+    <h2 style="display: flex;justify-content: center;" id="age"></h2>
+    <h2 style="display: flex;justify-content: center;" id="job"></h2>
+
+    <script type="text/javascript">
+        function add() {
+            var name = document.getElementById("inputName").value;
+            var age = document.getElementById("inputAge").value;
+            var job = document.getElementById("inputjob").value;
+            document.getElementById("name").innerHTML = `Name: ${name}`;
+            document.getElementById("age").innerHTML = `Age: ${age}`;
+            document.getElementById("job").innerHTML = `job: ${job}`;
+        }
+    </script>
+</body>
+
+</html>

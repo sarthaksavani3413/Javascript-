@@ -1,0 +1,30 @@
+<script type="text/javascript">
+    class A {
+        constructor(id, name, age) {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+        }
+        person () {
+            var data = [
+                { name: "jay", age: 23 },
+                { name: "ajay", age: 27 },
+            ]
+            // return data;
+            console.log(data);
+            
+        }
+    }
+    class B extends A {
+        constructor(id, name, age) {
+            super(id, name, age);
+            console.log(this.id , this.name , this.age);
+        }
+        users () {
+            console.log(`Name: ${this.name} , Age: ${this.age}`);
+            this.person();
+        }
+    }
+    var b = new B(1, "John", 25);
+    b.users();
+</script>

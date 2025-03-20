@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table align="center">
+        <tr>
+            <td style="border: 1px solid black;padding: 10px;">no1</td>
+            <td><input type="number" id="sum" style="border: 1px solid black;padding: 10px;"></td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;padding: 10px;">no2</td>
+            <td><input type="number" id="sum1" style="border: 1px solid black;padding: 10px;"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" value="sum" onclick="add()" style="padding: 5px 10px;"></td>
+        </tr>
+    </table>
+    <h1 align="center" id="ans"></h1>
+    <script>
+        var add = () => {
+            var no1 = document.getElementById("sum").value;
+            var no2 = document.getElementById("sum1").value;
+            var ans = parseInt(no1) + parseInt(no2);
+
+            document.getElementById(`ans`).innerHTML=`Ans :- ${ans}`
+
+            document.getElementById(`sum`).value="";
+            document.getElementById(`sum1`).value="";
+        }
+    </script>
+</body>
+
+</html>

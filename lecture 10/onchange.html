@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center;">
+        <select id="city" onchange="data()">
+            <option>---select city---</option>
+            <option>Surat</option>
+            <option>vadodra</option>
+            <option>Rajkot</option>
+            <option>Ahemdabad</option>
+        </select>
+    </div>
+    <h3 id="ans"></h3>
+    <script type="text/javascript">
+        let data = () => {
+            let city = document.getElementById('city').value;
+            document.getElementById('ans').innerHTML =  city;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<script type="text/javascript">
+    class A {
+        details() {
+            console.log("This is class A");
+        }
+    }
+    class B extends A {
+        details() {
+            var a = 10, b = 5;
+            console.log(`Ans :- ${a + b}`);
+        }
+    }
+    var a = [new A, new B];
+    a.forEach((val) => {
+        val.details();
+    });
+</script>

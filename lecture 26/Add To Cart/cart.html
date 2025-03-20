@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .cart-item img {
+            width: 80px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Shopping Cart</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="container">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-items"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h4>Summary</h4>
+                    <p id="grandtotal">Total: <strong> RS 0 </strong></p>
+                    <a href="./bill.html">
+                        <button class="btn btn-primary w-100">Checkout</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        if (!localStorage.getItem("currentuser")) {
+            window.location.href = "./login.html";
+        }else{
+            window.location.href = "./cart.html";
+        }
+        const addCart = () => {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let tbl = "";
+            let total = 0;
+
+            cart.forEach((val) => {
+                let price = parseInt(val.price) || 0;
+                let quantity = parseInt(val.quantity) || 0;
+                let subtotal = price * quantity;
+                total += subtotal;
+                tbl += `
+                        <tr>
+                            <td>
+                                <img src="${val.image}" style="width: 100px;height: 100px;"> 
+                                ${val.name}
+                            </td>
+                            <td>RS ${price}</td>
+                            <td>
+                                <input 
+                                    onchange="UpdateQty(${val.id})"
+                                    id="qty_${val.id}" 
+                                    type="number"
+                                    class="form-control"
+                                    value="${quantity}"
+                                    min="0">
+                            </td>
+                            <td>RS ${subtotal}</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger"
+                                onclick="removeItem(${val.id})">Remove</button>
+                            </td>
+                        </tr>    
+                    `;
+            });
+            document.getElementById("cart-items").innerHTML = tbl;
+            document.getElementById("grandtotal").innerHTML = `Total: RS ${total}`;
+        };
+        addCart();
+        const UpdateQty = (id) => {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let item = cart.find(val => val.id == id);
+
+            if (item) {
+                let newQty = parseInt(document.getElementById(`qty_${id}`).value);
+                if (newQty == 0) {
+                    item.quantity = newQty;
+                } else {
+                    item.quantity = newQty;
+                }
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert(`cart updated`);
+                addCart();
+            }
+        };
+
+        const removeItem = (id) => {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart = cart.filter(val => val.id !== id);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`cart removed`);
+            addCart();
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<h1 id="dom"></h1>
+<h1 id="DOM"></h1>
+<script type="text/javascript">
+    class person {
+        color() {
+            var clr = "red";
+            return clr;
+        }
+        users(){
+            var user = "John";
+            return user;
+        }
+    }
+    var obj = new person();
+    document.getElementById("dom")
+    .innerHTML = `The color is ${obj.color()}`;
+    document.getElementById("DOM")
+    .innerHTML = `The name is ${obj.users()}`;
+</script>

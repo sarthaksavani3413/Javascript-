@@ -1,0 +1,50 @@
+<!-- 2.Write a JavaScript program to find which number is greter in 4 numbers using nested if else. (using simple function) -->
+
+<script type="text/javascript">
+
+    // TNRS
+    var checknumber = () => {
+        var a = parseInt(prompt("Enter A number:"));
+        var b = parseInt(prompt("Enter B number:"));
+        var c = parseInt(prompt("Enter C number:"));
+        var d = parseInt(prompt("Enter D number:"));
+        if(a>b) {
+            if(a>c) {
+                if(a>d) {
+                    return ("<h2>A is max</h2>");
+                }
+                else {
+                    return ("<h2>D is max</h2>");
+                }
+            }
+            else {
+                if(c>d) {
+                    return ("<h2>C is max</h2>");
+                }
+                else {
+                    return ("<h2>D is max</h2>");
+                }
+            }
+        }
+        else {
+            if(b>c) {
+                if(b>d) {
+                    return ("<h2>B is max</h2>");
+                }
+                else {
+                    return ("<h2>D is max</h2>");
+                }
+            }
+            else {
+                if(c>d) {
+                    return ("<h2>C is max</h2>");
+                }
+                else {
+                    return ("<h2>D is max</h2>");
+                }
+            }
+        }
+    }
+    document.write(`<h2>${checknumber()}</h2>`);
+
+</script>

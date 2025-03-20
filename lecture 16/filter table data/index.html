@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-image: url(https://cdn.pixabay.com/photo/2013/06/09/19/39/beach-123844_960_720.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2 align="center">filter record</h2>
+    <table align="center">
+        <tr>
+            <td><input type="text" id="search" placeholder="Search Here"></td>
+            <td><input type="button" id="cityInput" value="Filter" onclick="cityFun()"></td>
+            <td><input type="button" id="button" value="Reset " onclick="ResetFun()"></td>
+        </tr>
+    </table>
+    <br>
+    <table align="center">
+        <tr>
+            <td><input type="text" id="gender" placeholder="Gender"></td>
+            <td><input type="button" id="cityInput" value="Filter" onclick="genderFun()"></td>
+            <td><input type="button" id="button" value="Reset " onclick="ResetFun()"></td>
+        </tr>
+    </table>
+    <br>
+    <table align="center">
+        <td><input type="text" id="StartSalary" placeholder="Salary"> to</td>
+        <td><input type="text" id="EndSalary" placeholder="Salary"></td>
+        <td><input type="button" id="cityInput" value="Filter" onclick="salaryFun()"></td>
+        <td><input type="button" id="button" value="Reset " onclick="ResetFun()"></td>  
+    </table>
+    <br>
+    <table align="center">
+        <tr>
+            <td><input type="text" id="designation" placeholder="Designation"></td>
+            <td><input type="button" id="cityInput" value="Filter" onclick="designationFun()"></td>
+            <td><input type="button" id="button" value="Reset " onclick="ResetFun()"></td>
+        </tr>
+    </table>
+    <br>
+    <table align="center">
+        <td><input type="button" value="print" onclick="window.print()" style="padding: 5px 15px;"></td>
+    </table>
+    <br>
+    <table border="1" align="center">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>City</th>
+            <th>Hobbies</th>
+            <th>Salary</th>
+            <th>Designation</th>
+        </thead>
+        <tbody align="center" id="record"></tbody>
+    </table>
+    <h1 id="error" align="center"></h1>
+    <script src="./index.js"></script>
+</body>
+
+</html>

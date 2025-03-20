@@ -1,0 +1,12 @@
+<script type="text/javascript">
+    var array = [11, 22, 33, 44, 55, "jay", true, false];
+    var ans = [];
+    var cnt = 0;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] % 2 == 0) {
+            ans[cnt++] = array[i]
+        }
+    }
+    console.log(ans); 
+    document.write(`<h2>${ans}</h2>`) 
+</script>

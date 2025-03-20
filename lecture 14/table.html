@@ -1,0 +1,74 @@
+<h2 align="center">Table view</h2>
+<table border="1" align="center">
+    <thead>
+        <th style="padding: 10px; background-color: crimson; color: white;">Id</th>
+        <th style="padding: 10px; background-color: crimson; color: white;">Name</th>
+        <th style="padding: 10px; background-color: crimson; color: white;">Phone</th>
+        <th style="padding: 10px; background-color: crimson; color: white;">city</th>
+        <th style="padding: 10px; background-color: crimson; color: white;">email</th>
+        <th style="padding: 10px; background-color: crimson; color: white;">address</th>
+        <th style="padding: 10px; background-color: crimson; color: white;">course</th>
+        <th style="padding: 10px; background-color: crimson; color: white;">status</th>
+    </thead>
+    <tbody id="record"></tbody>
+</table>
+
+<script type="text/javascript">
+
+    let details = [
+        {
+            id: 1,
+            name: "John",
+            phone: "1234567890",
+            city: "New York",
+            email: "john@gmail.com",
+            address: "123 Main St",
+            course: ["html", "css"],
+            status: "active"
+        },
+        {
+            id: 2,
+            name: "Jane",
+            phone: "9876543210",
+            city: "Los Angeles",
+            email: "jane@gmail.com",
+            address: "456 Elm St",
+            course: ["jquery", "boostrap"],
+            status: "inactive"
+        },
+    ];
+
+    var tbl = "";
+    // var filterstatus = details.filter((val) => val.status == "active" && val.city == "New York");
+    // filterstatus.map((val, index) => {
+    //     tbl += `
+    //             <tr>
+    //                 <td>${val.id}</td>    
+    //                 <td>${val.name}</td>    
+    //                 <td>${val.phone}</td>    
+    //                 <td>${val.city}</td>    
+    //                 <td>${val.email}</td>    
+    //                 <td>${val.address}</td>    
+    //                 <td>${val.course}</td>    
+    //                 <td>${val.status}</td>    
+    //             <tr>
+    //             `
+    // });
+    details.map((val) => {
+        tbl += `
+                <tr>
+                    <td>${val.id}</td>    
+                    <td>${val.name}</td>    
+                    <td>${val.phone}</td>    
+                    <td>${val.city}</td>    
+                    <td>${val.email}</td>    
+                    <td>${val.address}</td>    
+                    <td>${val.course}</td>    
+                    <td>${val.status}</td>    
+                <tr>
+                `
+    });
+
+    document.getElementById(`record`).innerHTML = tbl;
+
+</script>

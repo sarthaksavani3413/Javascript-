@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box"></div>
+    <input type="button" onclick="save()" value="click" id="btn">
+    <br>
+    <div class="box1"></div>
+    <input type="button" onclick="saveAs()" value="show" id="btn1">
+
+    <script>
+        function save() {
+            var box = document.querySelector('.box');
+            box.style.height = "200px";
+            box.style.width = "200px";
+            box.style.background = "aqua";
+            var btn = document.querySelector('#btn');
+            btn.style.display = "none";
+        }
+        function saveAs() {
+            var box1 = document.querySelector('.box1');
+            box1.style.height = "200px";
+            box1.style.width = "200px";
+            box1.style.background = "aqua";
+            var btn1 = document.querySelector('#btn1');
+            btn1.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

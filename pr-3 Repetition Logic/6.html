@@ -1,0 +1,16 @@
+<!-- Write javascript program to print 1 to n number  and all number sum using do while loop . -->
+
+<script>
+
+    var a = parseInt(prompt(`Enter n number`));
+    var i = 1;
+    var sum = 0;
+    do {
+        document.write(`<h2>${i}</h2>`);
+        sum += i;
+        i++;
+    } while (i <= a);
+
+    document.write(`<h2>Sum = ${sum}</h2>`);
+
+</script>

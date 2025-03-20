@@ -1,0 +1,20 @@
+<!-- fibonacci series 0 1 1 2 3 5 8 13 21 34  -->
+
+<script type="text/javascript">
+
+    // var a = 0, b = 1, c;
+    var a = parseInt(prompt(`Enter First Fibonaci Number`));
+    var b = parseInt(prompt(`Enter Second Fibonaci Number`));
+    var c;
+
+    document.write(`${a} `);
+    document.write(`${b}`);
+
+    for (var i = 0; i <= 10; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+        document.write(` ${c} `);
+    }
+
+</script>

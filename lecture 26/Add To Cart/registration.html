@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .registration-form {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="registration-form">
+        <h2 class="text-center mb-4">Register</h2>
+        <form id="registerForm" onsubmit="addUser(); return false;">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+                <small class="error" id="nameError"></small>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                <small class="error" id="emailError"></small>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password">
+                <small class="error" id="passwordError"></small>
+            </div>
+            <div class="mb-3">
+                <label for="confirm-password" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password">
+                <small class="error" id="confirmPasswordError"></small>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+        <p class="text-center mt-3">Already have an account? <a href="./login.html">Login</a></p>
+    </div>
+</div>
+
+<script src="./auth.js"></script>
+<script>
+    function register(event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirm-password").value;
+
+        let nameError = document.getElementById("nameError");
+        let emailError = document.getElementById("emailError");
+        let passwordError = document.getElementById("passwordError");
+        let confirmPasswordError = document.getElementById("confirmPasswordError");
+
+        nameError.innerHTML = emailError.innerHTML = passwordError.innerHTML = confirmPasswordError.innerHTML = "";
+
+        let isValid = true;
+
+        if (name === "") {
+            nameError.textContent = "Full Name is required.";
+            isValid = false;
+        }
+
+        let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (email === "") {
+            emailError.textContent = "Email is required.";
+            isValid = false;
+        } else if (!email.match(emailPattern)) {
+            emailError.textContent = "Enter a valid email address.";
+            isValid = false;
+        }
+
+        if (password === "") {
+            passwordError.textContent = "Password is required.";
+            isValid = false;
+        } else if (password.length < 6) {
+            passwordError.textContent = "Password must be at least 6 characters.";
+            isValid = false;
+        }
+
+        if (confirmPassword === "") {
+            confirmPasswordError.textContent = "Please confirm your password.";
+            isValid = false;
+        } else if (password !== confirmPassword) {
+            confirmPasswordError.textContent = "Passwords do not match.";
+            isValid = false;
+        }
+
+        if (!isValid) {
+            return false;
+        }
+
+        let users = JSON.parse(localStorage.getItem('user')) || [];
+
+        if (users.find(user => user.email === email)) {
+            emailError.textContent = "Email is already registered.";
+            return false;
+        }
+
+        let user = {
+            id: users.length + 1,
+            name: name,
+            email: email,
+            password: password
+        };
+
+        users.push(user);
+        localStorage.setItem('user', JSON.stringify(users));
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

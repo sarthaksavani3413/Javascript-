@@ -1,0 +1,27 @@
+<!-- Write a JavaScript program to create basic calculator using ladder if else.-->
+
+<script type="text/javascript">
+
+    var a = parseInt(prompt(`Enter first number :-`));
+    var b = parseInt(prompt(`Enter second number :-`));
+
+    var operator = prompt(`Enter operator (press 1 for addition, press 2 for subtraction, 
+    press 3 for multiplication, press 4 for division) :-`);
+
+    if (operator == 1) {
+        document.write(`<h1>${a} + ${b} = ${a + b}</h1>`);
+    } else if (operator == 2) {
+        document.write(`<h1>${a} - ${b} = ${a - b}</h1>`);
+    } else if (operator == 3) {
+        document.write(`<h1>${a} * ${b} = ${a * b}</h1>`);
+    } else if (operator == 4) {
+        if (b != 0) {
+            document.write(`<h1>${a} / ${b} = ${a / b}</h1>`);
+        } else {
+            document.write("Error! Division by zero is not allowed.");
+        }
+    } else {
+        document.write("Error! Invalid operator");
+    }
+
+</script>

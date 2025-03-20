@@ -1,0 +1,43 @@
+<script type="text/javascript">
+
+    var array = [1,2,3,4,5];
+
+    document.write(`<h2>${array}</h2>`);
+    document.write(`<h2>length of element :- ${array.length}</h2>`);
+
+    var arr = [1,2,3,4,5];
+    arr.push(6);
+    document.write(`<h2>push element :- ${arr}</h2>`);
+
+    var arr = [10,20,30,40,50];
+    arr.pop();
+    document.write(`<h2>pop element :- ${arr}</h2>`);
+
+    var arr = [1,2,3,4,5];
+    arr.unshift(0);
+    document.write(`<h2>unshift element :- ${arr}</h2>`);
+
+    var arr = [10,20,30,40,50];
+    arr.shift();
+    document.write(`<h2>shift element :- ${arr}</h2>`);
+
+    var arr1 = [1,2,3,4,5];
+    var arr2 = [10,20,30,40,50];
+    arr1.concat(arr2);
+    document.write(`<h2>concat element :- ${arr1.concat(arr2)}</h2>`);
+    
+    var arr1 = [1,2,3,4,5];
+    var arr2 = [10,20,30,40];
+    var arr3 = [100,200,300];
+    var ans = arr1.concat (arr2).concat(arr3);
+    document.write(`<h2>concat element :- ${ans}</h2>`);
+
+    var color = ["red,yellow,green,blue"];
+    var ans = color.toString();
+    document.write(`<h2>toString element :- ${ans}</h2>`);
+
+    var arr = [1,2,3,[4,5,6],7,8,9];
+    var ans = arr.flat();
+    document.write(`<h2>flat element :- ${ans}</h2>`);
+
+</script>

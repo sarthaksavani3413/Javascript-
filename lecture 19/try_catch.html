@@ -1,0 +1,17 @@
+<h1 id="ans"></h1>
+<script type="text/javascript">
+    try {
+        var a = parseInt(prompt(`enter a value`));
+        var b = parseInt(prompt(`enter b value`));
+
+        if (b == 0) {
+            throw "Error: Division by zero is not allowed.";
+        } else {
+            var result = a / b;
+            document.getElementById("ans").innerHTML = `The result is ${result}`;
+        }
+
+    } catch (Error) {
+        console.error(Error);
+    }
+</script>

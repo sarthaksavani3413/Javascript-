@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 align="center">To-Do List</h2>
+    <table align="center" border="1">
+        <tr>
+            <td>Add Task :- </td>
+            <td><input type="text" id="task"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" id="button" value="submit" onclick="todolist()"></td>
+        </tr>
+    </table>
+    <h2 align="center">View Tasks</h2>
+    <table align="center" border="1">
+        <thead>
+            <th>ID</th>
+            <th>Task</th>
+        </thead>
+        <tbody id="addTask"></tbody>
+    </table>
+    <script src="./index.js" type="text/javascript"></script>
+</body>
+</html>

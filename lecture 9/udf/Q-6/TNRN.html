@@ -1,0 +1,45 @@
+<!-- 6. Write a JavaScript program to create basic calculator using switch case. Ex. User input a,b and select choice + , - , * , / 
+
+a=10
+b=5
+select choice + , - , * , /
++
+Ans = 15
+-
+Ans = 5;
+*
+Ans = 50
+/
+Ans = 2 -->
+
+<script type="text/javascript">
+
+    // TNRN
+    var number = () => {
+        var a = parseInt(prompt("Enter A number:"));
+        var b = parseInt(prompt("Enter B number:"));
+        var sym = prompt("Enter a symbol (+, -, *, /):");
+        
+        switch (sym) {
+            case "+":
+                document.write(`<h2>${a} + ${b} = ${a + b}<h2>`);
+                break;
+            case "-":
+                document.write(`<h2>${a} - ${b} = ${a - b}</h2>`);
+                break;
+            case "*":
+                document.write(`<h2>${a} * ${b} = ${a * b}</h2>`);
+                break;
+            case "/":
+                if (b == 0) {
+                    document.write("Divide zero is not allowed.");
+                }
+                document.write(`<h2>${a} / ${b} = ${a / b}</h2>`);
+                break;
+            default:
+                document.write("Invalid symbols!");
+        }      
+    }
+    number();
+
+</script>

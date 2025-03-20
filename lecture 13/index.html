@@ -1,0 +1,31 @@
+<h2 id="grid"></h2>
+<h2 id="name"></h2>
+<h2 id="age"></h2>
+<h2 id="email"></h2>
+<h2 id="hobbies"></h2>
+<h2 id="address"></h2>
+
+<script type="text/javascript">
+    var obj = {
+        grid: 8098,
+        name: "Sarthak",
+        age: 20,
+        email: "savanisarthak0@gmail.com",
+        hobbies: ["cricket", "song listening", "traveling"],
+        address: {
+            country: "india",
+            state: "gujarat",
+            city: "surat",
+            area: "motavarachha,vesu",
+            pincode: "395006"
+        }
+    }
+
+    document.getElementById(`grid`).innerHTML = `Grid :- ${obj?.grid}`
+    document.getElementById(`name`).innerHTML = `Name :- ${obj?.name}`
+    document.getElementById(`age`).innerHTML = `Age :- ${obj?.age}`
+    document.getElementById(`email`).innerHTML = `Email :- ${obj?.email}`
+    document.getElementById(`hobbies`).innerHTML = `Hobbies :- ${obj?.hobbies}`
+    document.getElementById(`address`).innerHTML = `Address :- ${obj?.address.country}`
+
+</script>

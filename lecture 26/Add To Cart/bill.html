@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Billing List</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card p-4 shadow-sm">
+                    <h4 class="mb-3">Billing Details</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" placeholder="John Doe" id="name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="email@example.com" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" placeholder="123 Main St" id="address">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-control" placeholder="New York" id="city">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Zip Code</label>
+                            <input type="text" class="form-control" placeholder="10001" id="zip">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4 shadow-sm">
+                    <h4 class="mb-3">Order Summary</h4>
+                    <ul class="list-group mb-3" id="order-summary"></ul>
+                    <p id="grandtotal">Total: <strong> RS 0 </strong></p>
+                    <button class="btn btn-primary w-100 mt-3" onclick="addBill()">Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const addBill = () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zip = document.getElementById('zip').value;
+            if (!name || !email || !address || !city || !zip) {
+                alert("Please fill in all billing details.");
+                return;
+            }
+            let bill = JSON.parse(localStorage.getItem("cart")) || [];
+            let tbl = "";
+            let total = 0;
+            bill.map(item => {
+                let subtotal = item.price * item.quantity;
+                total += subtotal;
+                tbl += `
+                        <li class="list-group-item d-flex justify-content-between">
+                            <img src="${item.image}" style="width: 100px;height: 80px;"> 
+                            <span>"${item.name}"</span>
+                            <strong>${item.price}</strong>
+                        </li>
+                        `
+            });
+            document.getElementById("order-summary").innerHTML = tbl;
+            document.getElementById("grandtotal").innerHTML = `<h5>Total: ${total} RS </h5>`;
+            localStorage.setItem("cart", JSON.stringify(bill));
+            alert(` Name :- ${name} \n Email:-  ${email} \n Address:- ${address} \n City:- ${city} \n Zip:- ${zip} \n ${total} Payment successfully`);
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 5000);
+        }
+    </script>
+</body>
+
+</html>
